@@ -1,0 +1,26 @@
+{
+  "name": "employee-management-system",
+  "version": "1.0.0",
+  "description": "Modern CRUD Employee Management System with Next.js and Fastify",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "node scripts/banner.js && cd backend && yarn db:generate >nul 2>&1 && yarn db:push >nul 2>&1 && yarn db:seed && cd .. && set NODE_OPTIONS=--no-deprecation && concurrently --kill-others-on-fail --raw \"cd backend && yarn dev\" \"cd frontend && yarn dev\"",
+    "build": "cd backend && yarn build && cd ../frontend && yarn build",
+    "start": "cd backend && yarn start & cd frontend && yarn start",
+    "test": "cd backend && yarn test && cd ../frontend && yarn test",
+    "lint": "cd backend && yarn lint && cd ../frontend && yarn lint",
+    "format": "cd backend && yarn format && cd ../frontend && yarn format",
+    "clean": "cd backend && yarn clean && cd ../frontend && yarn clean",
+    "setup": "yarn install && cd backend && yarn install && cd ../frontend && yarn install",
+    "db:setup": "cd backend && yarn db:generate && yarn db:push && yarn db:seed"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.1.1"
+  },
+  "workspaces": ["backend", "frontend"],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
