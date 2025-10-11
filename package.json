@@ -1,0 +1,25 @@
+{
+  "name": "employee-management-system",
+  "version": "1.0.0",
+  "description": "Production-grade Full-Stack Employee Management System",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "cd backend && yarn db:generate && yarn db:push && yarn db:seed && cd .. && concurrently --kill-others-on-fail --raw \"cd backend && yarn dev\" \"cd frontend && yarn dev\"",
+    "build": "cd backend && yarn db:generate && yarn build && cd ../frontend && yarn build",
+    "start": "node backend/dist/server.js",
+
+    "test": "cd backend && yarn test",
+    "lint": "cd backend && yarn lint && cd ../frontend && yarn lint",
+    "clean": "cd backend && yarn clean && cd ../frontend && yarn clean",
+    "setup": "yarn install && cd backend && yarn install && cd ../frontend && yarn install",
+    "db:setup": "cd backend && yarn db:generate && yarn db:push && yarn db:seed"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": ["backend", "frontend"],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
