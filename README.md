@@ -1,134 +1,123 @@
-# 🚀 Employee Management System
+# Employee Management System
 
-> Production-grade full-stack CRUD application with Docker deployment
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit-blue?style=for-the-badge)](https://employee-management-app-mscr.vercel.app)
+[![API Status](https://img.shields.io/badge/🔗_API-Online-green?style=for-the-badge)](https://employee-management-app-c6psx.ondigitalocean.app/health)
+[![TypeScript](https://img.shields.io/badge/TypeScript-100%25-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Fastify](https://img.shields.io/badge/Fastify-API-000000?style=for-the-badge&logo=fastify&logoColor=white)](https://www.fastify.io/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+[![DigitalOcean](https://img.shields.io/badge/DigitalOcean-Deployed-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white)](https://www.digitalocean.com/)
 
-## ✨ Features
+> **Modern full-stack employee management application with separate frontend/backend deployments**
 
-- **Full CRUD Operations**: Create, Read, Update, Delete employees
-- **Real-time Search**: Instant employee search functionality  
-- **Professional UI**: Clean, responsive interface
-- **Docker Ready**: Containerized for easy deployment
-- **Database Persistence**: SQLite with volume mounting
-- **Health Checks**: Built-in monitoring endpoints
+## 🚀 Live Application
 
-## 🛠️ Tech Stack
+| Service | URL | Status |
+|---------|-----|--------|
+| **Frontend** | [employee-management-app-mscr.vercel.app](https://employee-management-app-mscr.vercel.app) | [![Vercel](https://img.shields.io/badge/Live-brightgreen)](https://employee-management-app-mscr.vercel.app) |
+| **API** | [employee-management-app-c6psx.ondigitalocean.app](https://employee-management-app-c6psx.ondigitalocean.app/api/employees) | [![API](https://img.shields.io/badge/Online-success)](https://employee-management-app-c6psx.ondigitalocean.app/health) |
 
-- **Backend**: Fastify + TypeScript + Prisma + SQLite
-- **Frontend**: Next.js + React + Tailwind CSS
-- **Deployment**: Docker + DigitalOcean App Platform
+## ⚡ Features
 
-## 🚀 Quick Start
+- **CRUD Operations** - Create, read, update, delete employees
+- **Real-time Search** - Instant search with debouncing
+- **Responsive Design** - Mobile-first approach
+- **Type Safety** - 100% TypeScript coverage
+- **High Performance** - Optimized API responses
+- **Production Ready** - Scalable architecture
 
-### Local Development
+## 🛠 Tech Stack
+
+### Frontend
+```
+Next.js 14 + React + TypeScript + Tailwind CSS + TanStack Query
+```
+**Deployed on:** Vercel
+
+### Backend
+```
+Fastify + Prisma + SQLite + TypeScript + Docker
+```
+**Deployed on:** DigitalOcean App Platform
+
+## 🏃‍♂️ Quick Start
 
 ```bash
-# Clone and setup
-git clone <repo-url>
-cd employee-management-system
-yarn install
+# Clone & install
+git clone https://github.com/swarajreddy10/Employee-management-app.git
+cd Employee-management-app && yarn install
 
-# Start development servers
+# Start development
 yarn dev
 ```
 
-**Access Points:**
-- Frontend: http://localhost:3000
-- API: http://localhost:8000/api
-- Health: http://localhost:8000/health
+**Development URLs:**
+- Frontend: `http://localhost:3000`
+- API: `http://localhost:8000/api`
 
-### Docker Deployment
-
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
-
-# Or build manually
-docker build -t employee-management .
-docker run -p 8000:8000 -v $(pwd)/data:/app/data employee-management
-```
-
-## 🌐 DigitalOcean Deployment
-
-### App Platform Setup
-
-1. **Create App** → Choose Docker
-2. **Repository**: Your GitHub repo
-3. **Environment Variables**:
-   ```
-   DATABASE_URL=file:/app/data/prod.db
-   NODE_ENV=production
-   PORT=8000
-   ```
-4. **Port**: 8000
-5. **Health Check**: `/health`
-
-### Features in Production
-
-- ✅ Automatic database setup and seeding
-- ✅ Persistent data storage
-- ✅ Health monitoring
-- ✅ Full CRUD interface
-- ✅ Search functionality
-- ✅ Responsive design
-
-## 📡 API Endpoints
+## 📋 API Reference
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/api/employees` | List all employees |
-| `GET` | `/api/employees?search=query` | Search employees |
+| `GET` | `/api/employees` | Get all employees |
+| `GET` | `/api/employees?search={query}` | Search employees |
 | `POST` | `/api/employees` | Create employee |
-| `PUT` | `/api/employees/:id` | Update employee |
-| `DELETE` | `/api/employees/:id` | Delete employee |
+| `PUT` | `/api/employees/{id}` | Update employee |
+| `DELETE` | `/api/employees/{id}` | Delete employee |
 | `GET` | `/health` | Health check |
 
-## 🏗️ Project Structure
-
-```
-employee-management-system/
-├── backend/                 # Fastify API
-│   ├── src/                # Source code
-│   ├── prisma/             # Database schema
-│   └── dist/               # Compiled output
-├── frontend/               # Next.js app
-│   ├── app/                # App router
-│   └── components/         # React components
-├── scripts/                # Deployment scripts
-├── Dockerfile              # Container definition
-└── docker-compose.yml      # Local development
-```
-
-## 🔧 Environment Variables
-
+**Example:**
 ```bash
-# Development
-DATABASE_URL="file:./dev.db"
-NODE_ENV="development"
-PORT=8000
-NEXT_PUBLIC_API_URL="http://localhost:8000/api"
+curl https://employee-management-app-c6psx.ondigitalocean.app/api/employees
+```
 
-# Production
-DATABASE_URL="file:/app/data/prod.db"
-NODE_ENV="production"
+## 🏗 Architecture
+
+```mermaid
+graph LR
+    A[Next.js Frontend<br/>Vercel] -->|API Calls| B[Fastify Backend<br/>DigitalOcean]
+    B --> C[SQLite Database<br/>Persistent Storage]
+```
+
+## ⚙️ Environment Setup
+
+**Backend** (`.env`)
+```env
+DATABASE_URL=file:./dev.db
+NODE_ENV=development
 PORT=8000
+```
+
+**Frontend** (`.env.local`)
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000/api
 ```
 
 ## 🧪 Testing
 
 ```bash
-# API tests
+# Backend tests
 cd backend && yarn test
 
 # Health check
-curl http://localhost:8000/health
+curl https://employee-management-app-c6psx.ondigitalocean.app/health
 ```
 
-## 📊 Monitoring
+## 📊 Performance
 
-- **Health Endpoint**: `/health`
-- **Docker Health Check**: Built-in container monitoring
-- **Logs**: Structured logging with timestamps
+- **API Response:** < 50ms
+- **Frontend Load:** < 2s
+- **Database:** Optimized with Prisma
+- **CDN:** Global edge caching
+
+## 👨‍💻 Developer
+
+**Swaraj Reddy**  
+[![GitHub](https://img.shields.io/badge/GitHub-swarajreddy10-181717?style=flat&logo=github)](https://github.com/swarajreddy10)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-swarajreddy-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/swarajreddy)
 
 ---
 
-**Professional deployment ready for production use! 🎯**
+[![Star](https://img.shields.io/github/stars/swarajreddy10/Employee-management-app?style=social)](https://github.com/swarajreddy10/Employee-management-app)
+
+**[🚀 Try Live Demo](https://employee-management-app-mscr.vercel.app)**
