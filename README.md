@@ -5,8 +5,8 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-100%25-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Fastify](https://img.shields.io/badge/Fastify-API-000000?style=for-the-badge&logo=fastify&logoColor=white)](https://www.fastify.io/)
-[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
-[![DigitalOcean](https://img.shields.io/badge/DigitalOcean-Deployed-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white)](https://www.digitalocean.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)]([https://vercel.com/](https://employee-management-app-mscr.vercel.app/))
+[![DigitalOcean](https://img.shields.io/badge/DigitalOcean-Deployed-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white)]([https://www.digitalocean.com/](https://employee-management-app-c6psx.ondigitalocean.app/api/employees))
 
 > **Modern full-stack employee management application with separate frontend/backend deployments**
 
